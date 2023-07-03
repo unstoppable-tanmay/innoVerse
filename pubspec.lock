@@ -113,6 +113,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  curved_animation_controller:
+    dependency: transitive
+    description:
+      name: curved_animation_controller
+      sha256: deb247b87bfa4eb5fdda9f36cc4776dfc18ad2580cbfdc382ec28bcf8c3c42e6
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0+1"
   fake_async:
     dependency: transitive
     description:
@@ -198,6 +206,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
+  flutter_staggered_grid_view:
+    dependency: "direct main"
+    description:
+      name: flutter_staggered_grid_view
+      sha256: "1312314293acceb65b92754298754801b0e1f26a1845833b740b30415bbbcf07"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -325,6 +341,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  slide_drawer:
+    dependency: "direct main"
+    description:
+      name: slide_drawer
+      sha256: "47f13907124ccd48d54729f5818382e092ec172eb961bc89c1d993f5970c5fc8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   source_span:
     dependency: transitive
     description:
