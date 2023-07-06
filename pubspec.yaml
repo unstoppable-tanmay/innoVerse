@@ -12,12 +12,10 @@ flutter_launcher_icons:
   image_path: "assets/icon/icon.png"
   min_sdk_android: 21
 
+# flutter pub run flutter_launcher_icons
+
 flutter_native_splash:
-  # color: "#BDE1FF"
-  # color_dark: "#042a49"
-  background_image: "assets/icon/splash.jpg"
-  # fullscreen: true
-  android_gravity: fill_vertical
+  background_image: "assets/icon/splash2.jpg"
 
   # dart run flutter_native_splash:create
 
@@ -34,6 +32,10 @@ dependencies:
   uuid: ^3.0.7
   flutter_staggered_grid_view: ^0.6.2
   slide_drawer: ^1.0.3
+  image_picker: ^1.0.0
+  hidden_drawer_menu: ^3.0.1
+  cloud_firestore: ^4.8.2
+  firebase_storage: ^11.2.4
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +48,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/profile/
 
   # fonts:
   #   - family: Schyler

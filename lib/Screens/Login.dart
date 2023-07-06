@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:innoverse/Components/HiddenDrawer.dart';
+
+import '../Services/Data.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -10,13 +14,31 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  UserCredential? user;
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  login(context) async {
+    try {
+      user = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+      await getUser(user!.user!.uid);
+      print(userData!.name);
+      Navigator.push(context, MaterialPageRoute(
+        builder: (context) {
+          return HiddenDrawer();
+        },
+      ));
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-
-    TextEditingController emailController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
         extendBodyBehindAppBar: true,
@@ -61,6 +83,7 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: TextField(
+                          controller: emailController,
                           onTapOutside: (event) {
                             FocusScope.of(context).unfocus();
                           },
@@ -84,6 +107,7 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(14),
                         ),
                         child: TextField(
+                          controller: passwordController,
                           onTapOutside: (event) {
                             FocusScope.of(context).unfocus();
                           },
@@ -107,7 +131,7 @@ class _LoginState extends State<Login> {
                         height: 15,
                       ),
                       MaterialButton(
-                        onPressed: () {},
+                        onPressed: () => login(context),
                         minWidth: width,
                         height: 50,
                         elevation: 15,
@@ -176,7 +200,8 @@ class _LoginState extends State<Login> {
                   RichText(
                     text: TextSpan(
                         text: 'Not a member?',
-                        style: const TextStyle(color: Colors.black, fontSize: 13),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 13),
                         children: <TextSpan>[
                           TextSpan(
                               text: ' Resister now',
